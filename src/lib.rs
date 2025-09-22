@@ -82,7 +82,7 @@ pub fn secp256k1_recover(
 
     // Recover the public key from the signature and message hash
     let binding = signature
-        .recover_verify_key_from_digest_bytes(hash.into())
+        .recover_verifying_key_from_digest_bytes(hash.into())
         .map_err(|_| Secp256k1RecoverError::RecoveryError)?
         .to_encoded_point(false);
 
